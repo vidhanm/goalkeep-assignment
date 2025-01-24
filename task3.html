@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,8 +40,24 @@
             padding: 5px;
             border-radius: 5px;
         }
+
+        .back-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
+
 <body>
     <h1><b>Task 3</b></h1>
     Create a data model (aka entity relationship diagram) that will enable this client to answer the above key
@@ -48,5 +65,16 @@
     data models are built using diagrams.net. A photo of a pen & paper diagram will do just fine.
     <br>
     <img src="db_task3.png" alt="Task 3">
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back to Home</button>
+
+    <script>
+        // JavaScript function to go back to the previous page
+        function goBack() {
+            window.location.href = "index.html"; // Redirect to index.html
+        }
+    </script>
 </body>
+
 </html>
