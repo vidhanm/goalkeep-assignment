@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+            color: #d63384;
+        }
+
+        .keyword {
+            color: #007bff;
+            /* Blue for SQL keywords */
+        }
+
+        .function {
+            color: #28a745;
+            /* Green for functions */
+        }
+
+        .comment {
+            color: #6c757d;
+            /* Gray for comments */
+        }
+    </style>
+</head>
+
+<body>
+    <h1><b>Task 2</b></h1>
+    Write a SQL query that lets us compare planned hours to actual hours worked for each deliverable &
+    project. This will then be used to alert us of instances where a project or deliverable is at the risk of
+    exceeding its time-budget.
+
+    <br>
+
+    <pre><code>
+<span class="keyword">SELECT</span> 
+    d.ProjectId <span class="keyword">AS</span> ProjectID,
+    d.Id <span class="keyword">AS</span> DeliverableID,
+    <span class="keyword">CASE</span> 
+        <span class="keyword">WHEN</span> lvl.Level = 4 <span class="keyword">THEN</span> 'Level 4'
+        <span class="keyword">WHEN</span> lvl.Level = 3 <span class="keyword">THEN</span> 'Level 3'
+        <span class="keyword">WHEN</span> lvl.Level = 2 <span class="keyword">THEN</span> 'Level 2'
+        <span class="keyword">WHEN</span> lvl.Level = 1 <span class="keyword">THEN</span> 'Level 1'
+    <span class="keyword">END</span> <span class="keyword">AS</span> Level,
+    lvl.PlannedDays <span class="keyword">AS</span> TotalPlannedDays,
+    <span class="function">DATEDIFF</span>(day, d.StartDate, d.[Expected/Actual End Date]) <span class="keyword">AS</span> TotalActualDaysWorked,
+    lvl.PlannedDays - <span class="function">DATEDIFF</span>(day, d.StartDate, d.[Expected/Actual End Date]) <span class="keyword">AS</span> TotalDaysRemaining,
+    (lvl.PlannedDays - <span class="function">DATEDIFF</span>(day, d.StartDate, d.[Expected/Actual End Date])) * 100.0 / lvl.PlannedDays <span class="keyword">AS</span> PercentDaysRemaining
+<span class="keyword">FROM</span> 
+    Deliverable d
+<span class="keyword">CROSS APPLY</span> (
+    <span class="keyword">VALUES</span> 
+        (4, d.[Planned Days Level 4]),
+        (3, d.[Planned Days Level 3]),
+        (2, d.[Planned Days Level 2]),
+        (1, d.[Planned Days Level 1])
+) lvl(Level, PlannedDays)
+<span class="keyword">WHERE</span> 
+    d.[Expected/Actual End Date] <span class="keyword">IS NOT NULL</span>
+<span class="keyword">ORDER BY</span> 
+    ProjectID, DeliverableID, Level;
+    </code></pre>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .highlight {
+            background-color: #e8f4f8;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><b>Task 1</b></h1>
+
+
+    <h2>Dataset Exploration:</h2>
+    <Ul>
+        <li>The dataset contains monthly revenue data (in Lac ₹) for 16 different locations/branches across India from
+            December 2022 to March 2023.</li>
+        <li>Revenue is reported for each branch, with values ranging from as low as ₹1.06 Lac (Kochi in March 2023) to
+            as
+            high as ₹73.78 Lac (Chennai in January 2023).</li>
+        <li>The data covers a 4-month period, allowing for temporal and geographical revenue analysis.</li>
+    </Ul>
+    <br>
+
+
+
+
+    <h2>Hypothesis Development:</h2>
+    <p>Let's consider India's regional economic characteristics and seasonal variations to develop hypotheses about
+        revenue patterns:</p>
+
+    <h3>1. Seasonal Revenue Hypothesis:</h3>
+    <ul>
+        <li>Winter (December-February): Potentially lower revenue due to:
+            <ul>
+                <li>Agricultural slowdown in many regions</li>
+                <li>Post-festival season economic cooldown</li>
+                <li>Reduced commercial activities in some sectors</li>
+            </ul>
+        </li>
+        <li>Summer (March-May): Potential revenue variations due to:
+            <ul>
+                <li>Increased economic activities in certain sectors</li>
+                <li>Agricultural harvesting seasons in some regions</li>
+                <li>Beginning of financial year preparations</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>2. Regional Economic Variation Hypothesis:</h3>
+    <ul>
+        <li>Metropolitan Areas (Delhi NCR, Mumbai, Bangalore): Likely to show more stable revenues due to:
+            <ul>
+                <li>Diverse economic ecosystems</li>
+                <li>Technology and service sector dominance</li>
+                <li>Less dependency on seasonal economic factors</li>
+            </ul>
+        </li>
+        <li>Agrarian Regions (Bihar, North East): Might show more significant seasonal revenue fluctuations based on:
+            <ul>
+                <li>Agricultural cycles</li>
+                <li>Seasonal employment patterns</li>
+                <li>Regional economic dependencies</li>
+            </ul>
+        </li>
+    </ul>
+
+    <br>
+
+    <div class='tableauPlaceholder' id='viz1737710268555' style='position: relative'><noscript><a href='#'><img
+                    alt='Dashboard 1 '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;in&#47;indianmap_17377102039210&#47;Dashboard1&#47;1_rss.png'
+                    style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='path'
+                value='views&#47;indianmap_17377102039210&#47;Dashboard1?:language=en-US&amp;:embed=true&amp;publish=yes&amp;:sid=&amp;:redirect=auth' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;in&#47;indianmap_17377102039210&#47;Dashboard1&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+            <param name='filter' value='publish=yes' />
+        </object></div>
+    <script
+        type='text/javascript'>                    var divElement = document.getElementById('viz1737710268555'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.maxWidth = '1260px'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; vizElement.style.maxHeight = '1107px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.maxWidth = '1260px'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; vizElement.style.maxHeight = '1107px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+
+    <h2>Region-wise Revenue Insights</h2>
+
+    <h3>1. Region-wise Revenue Contribution (Total Revenue)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Region</th>
+                <th>Locations</th>
+                <th>Total Revenue (Sum of All Months)</th>
+                <th>% Share of Total Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>South</strong></td>
+                <td>Bangalore, Chennai, Hyderabad, Kochi</td>
+                <td>₹110.24</td>
+                <td>32.2%</td>
+            </tr>
+            <tr>
+                <td><strong>West</strong></td>
+                <td>Ahmedabad, Jaipur, Mumbai, Indore</td>
+                <td>₹31.48</td>
+                <td>9.2%</td>
+            </tr>
+            <tr>
+                <td><strong>North</strong></td>
+                <td>Chandigarh, Delhi NCR, Lucknow</td>
+                <td>₹32.53</td>
+                <td>9.5%</td>
+            </tr>
+            <tr>
+                <td><strong>East</strong></td>
+                <td>Bihar, Kolkata, North East, Shillong</td>
+                <td>₹68.65</td>
+                <td>20.1%</td>
+            </tr>
+            <tr>
+                <td><strong>Central</strong></td>
+                <td>Chattisgarh</td>
+                <td>₹7.87</td>
+                <td>2.3%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><span class="highlight">Key Insight</span>: The <strong>South</strong> region dominates with
+        <strong>32.2%</strong> of total revenue, driven by high-performing Chennai (₹64.33 in Dec 2022). The
+        <strong>East</strong> follows with <strong>20.1%</strong>, largely due to Kolkata’s strong performance (₹42.33
+        in Dec 2022). The <strong>West</strong> and <strong>North</strong> contribute ~9-10%, while the
+        <strong>Central</strong> region (Chattisgarh) has the smallest share.
+    </p>
+
+    <h3>2. Region with Most Month-to-Month Volatility</h3>
+    <h3>South</h3>
+    <ul>
+        <li><strong>Bangalore</strong>: Dropped <strong>27%</strong> from Dec 2022 (₹14.93) to March 2023 (₹10.85).</li>
+        <li><strong>Chennai</strong>: Peaked at ₹73.78 (Jan 2023) but fell to ₹57.64 (March 2023), a <strong>22%
+                decline</strong>.</li>
+    </ul>
+
+    <h3>East</h3>
+    <ul>
+        <li><strong>Kolkata</strong>: Fluctuated between ₹42.33 (Dec 2022) and ₹37.26 (Feb 2023), with a <strong>12%
+                drop</strong> in Jan 2023.</li>
+    </ul>
+
+    <h3>West</h3>
+    <ul>
+        <li><strong>Indore</strong>: Surged from ₹19.03 (Dec 2022) to ₹25.50 (Jan 2023), then dropped to ₹13.21 (March
+            2023) – a <strong>48% decline</strong>.</li>
+    </ul>
+
+    <h3>North</h3>
+    <ul>
+        <li><strong>Lucknow</strong>: Fell from ₹17.08 (Dec 2022) to ₹13.69 (March 2023), a <strong>20%
+                decline</strong>.</li>
+    </ul>
+
+    <p><span class="highlight">Key Insight</span>: The <strong>South</strong> and <strong>West</strong> regions show the
+        <strong>highest volatility</strong> due to drastic drops in Bangalore and Indore. <strong>Chennai
+            (South)</strong> and <strong>Kolkata (East)</strong> are stable anchors for their regions.
+    </p>
+
+
+
+</body>
+
+</html>
